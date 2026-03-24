@@ -85,7 +85,7 @@ export default function HowItWorks() {
                   <p>Your vehicle is delivered safely to your door. Inspect, sign, and celebrate—your transit is complete.</p>
                 </div>
                 <div className={styles.bentoSmallImage}>
-                  <Image src="/images/how-step4.jpg" alt="Secure Delivery" fill style={{ objectFit: 'cover' }} />
+                  <Image src="/images/how-final-step.jpg" alt="Secure Delivery" fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
             </div>

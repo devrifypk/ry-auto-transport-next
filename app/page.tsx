@@ -232,7 +232,7 @@ export default function Home() {
           <div className={styles.ctaBlob}>
             <div className={styles.blobHighlight1}></div>
             <div className={styles.blobHighlight2}></div>
-            <h2 className={styles.ctaTitle}>Ready to move with precision?</h2>
+            <h2 className={styles.ctaTitle} style={{ color: '#ffffff' }}>Ready to move with precision?</h2>
             <p className={styles.ctaSubtitle}>
               Join the thousands who trust {siteConfig.companyName} for their most valuable assets.
             </p>

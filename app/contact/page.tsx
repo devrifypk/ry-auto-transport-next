@@ -89,7 +89,7 @@ export default function Contact() {
             {/* Expert Consultation */}
             <div className={styles.expertCard}>
               <div className={styles.expertCardContent}>
-                <h3 className={styles.expertTitle}>Talk to an Expert</h3>
+                <h3 className={styles.expertTitle} style={{ color: '#ffffff' }}>Talk to an Expert</h3>
                 <p className={styles.expertDesc}>
                   Need custom fleet solutions or high-value vehicle logistics advice? Schedule a 15-minute consultation with our senior transport specialists.
                 </p>
