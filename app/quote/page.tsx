@@ -1,8 +1,11 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { CheckCircle2 } from 'lucide-react';
+import AutocompleteLocation from '../components/AutocompleteLocation';
+import AutocompleteVehicleMake from '../components/AutocompleteVehicleMake';
+import AutocompleteVehicleModel from '../components/AutocompleteVehicleModel';
 import styles from './page.module.css';
 
 function QuoteFormInner() {
@@ -101,11 +104,11 @@ function QuoteFormInner() {
               </div>
               <div className={styles.formGroup}>
                 <label>Make</label>
-                <input type="text" value={vehicle.make} onChange={(e) => handleVehicleChange(index, 'make', e.target.value)} required className={styles.input} placeholder="e.g. Honda" />
+                <AutocompleteVehicleMake value={vehicle.make} onChange={(val: string) => handleVehicleChange(index, 'make', val)} required className={styles.input} placeholder="e.g. Porsche" />
               </div>
               <div className={styles.formGroup}>
                 <label>Model</label>
-                <input type="text" value={vehicle.model} onChange={(e) => handleVehicleChange(index, 'model', e.target.value)} required className={styles.input} placeholder="e.g. Civic" />
+                <AutocompleteVehicleModel make={vehicle.make} year={vehicle.year} value={vehicle.model} onChange={(val: string) => handleVehicleChange(index, 'model', val)} required className={styles.input} placeholder="e.g. 911" />
               </div>
               <div className={styles.formGroup}>
                 <label>Is the vehicle running?</label>
@@ -126,12 +129,12 @@ function QuoteFormInner() {
         <h3>2. Route & Timing</h3>
         <div className={styles.grid2}>
           <div className={styles.formGroup}>
-            <label htmlFor="pickup">Pickup City & State</label>
-            <input type="text" id="pickup" name="pickup" value={formData.pickup} onChange={handleChange} required className={styles.input} placeholder="e.g. Miami, FL" />
+            <label htmlFor="pickup">Pickup City & Zip</label>
+            <AutocompleteLocation name="pickup" value={formData.pickup} onChange={(val: string) => setFormData({ ...formData, pickup: val })} required className={styles.input} placeholder="e.g. Miami, FL / 33101" />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="delivery">Delivery City & State</label>
-            <input type="text" id="delivery" name="delivery" value={formData.delivery} onChange={handleChange} required className={styles.input} placeholder="e.g. Los Angeles, CA" />
+            <label htmlFor="delivery">Delivery City & Zip</label>
+            <AutocompleteLocation name="delivery" value={formData.delivery} onChange={(val: string) => setFormData({ ...formData, delivery: val })} required className={styles.input} placeholder="e.g. Los Angeles, CA / 90210" />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="date">First Available Pickup Date</label>

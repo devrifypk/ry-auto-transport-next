@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Phone, ArrowRight } from 'lucide-react';
+import AutocompleteLocation from './AutocompleteLocation';
 import styles from './HeroQuoteForm.module.css';
 
 export default function HeroQuoteForm() {
@@ -19,7 +20,6 @@ export default function HeroQuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to the full quote page with query params to prefill
     const params = new URLSearchParams({
       pickup: formData.pickup,
       delivery: formData.delivery,
@@ -40,28 +40,24 @@ export default function HeroQuoteForm() {
       
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.inputGroup}>
-          <label htmlFor="pickup">Pickup City & State</label>
-          <input 
-            type="text" 
-            id="pickup" 
+          <label htmlFor="pickup">Pickup City & Zip</label>
+          <AutocompleteLocation 
             name="pickup" 
-            placeholder="e.g. Miami, FL" 
+            placeholder="e.g. Miami, FL / 33101" 
             value={formData.pickup}
-            onChange={handleChange}
+            onChange={(val) => setFormData({ ...formData, pickup: val })}
             required 
             className={styles.input}
           />
         </div>
         
         <div className={styles.inputGroup}>
-          <label htmlFor="delivery">Delivery City & State</label>
-          <input 
-            type="text" 
-            id="delivery" 
+          <label htmlFor="delivery">Delivery City & Zip</label>
+          <AutocompleteLocation 
             name="delivery" 
-            placeholder="e.g. Los Angeles, CA" 
+            placeholder="e.g. Los Angeles, CA / 90210" 
             value={formData.delivery}
-            onChange={handleChange}
+            onChange={(val) => setFormData({ ...formData, delivery: val })}
             required 
             className={styles.input}
           />
