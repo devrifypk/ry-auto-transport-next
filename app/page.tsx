@@ -101,9 +101,24 @@ export default function Home() {
 
           <div className={styles.reviewsGrid}>
             {[
-              { name: "Michael T.", date: "2 weeks ago", text: "Excellent experience with R&Y Auto Transport. Yakov was communicative throughout the whole process and my car arrived a day early without a single scratch." },
-              { name: "Sarah L.", date: "1 month ago", text: "First time shipping a car and they made it so easy. The quote was transparent, no hidden fees. The driver was very professional." },
-              { name: "David R.", date: "2 months ago", text: "Needed my classic car shipped in an enclosed trailer. They handled it with extreme care. Highly recommend their services for anyone needing a trustworthy broker." }
+              { 
+                name: "avi Biberfeld", 
+                date: "a month ago", 
+                avatar: "https://lh3.googleusercontent.com/a/ACg8ocIWuBu99pXI9mSpzQeYjQwVml5cPjcRJik09bnrExUfwPBzhA=w54-h54-p-rp-mo-br100",
+                text: "I had an amazing experience with R&Y Auto Transport. From start to finish, everything was handled professionally and smoothly. Communication was clear, pricing was fair with no surprises, and my vehicle arrived safely and on time. They truly care about their customers and make the entire process stress-free. If you’re looking for reliable, honest, and efficient auto transport, I highly recommend R&Y Auto Transport. I will definitely be using them again!" 
+              },
+              { 
+                name: "Shmuel Palgon", 
+                date: "3 weeks ago", 
+                avatar: "https://lh3.googleusercontent.com/a-/ALV-UjU7n5bseGCtK2u9rwvngQvWBo3fEXw95YJq-GuYsR_WCVkcw1xW=w54-h54-p-rp-mo-br100",
+                text: "Jacob was on top of all the logistics and made sure I was informed with whatever the latest update was! I’d definitely call him again next time for my transporting" 
+              },
+              { 
+                name: "Nochi Adelman", 
+                date: "a month ago", 
+                avatar: "https://lh3.googleusercontent.com/a/ACg8ocKUgTzt9enxaVpXyFGIepp_Sj2vcZ-0MtUIWKcAIQTI-7qkNg=w54-h54-p-rp-mo-br100",
+                text: "R&y auto transport treated me very well they were very efficient and everything was very smooth I really recommend" 
+              }
             ].map((review, i) => (
               <div key={i} className={styles.reviewCard}>
                 <div className={styles.reviewStars}>
@@ -113,7 +128,12 @@ export default function Home() {
                 </div>
                 <p className={styles.reviewText}>"{review.text}"</p>
                 <div className={styles.reviewAuthor}>
-                  <span className={styles.authorName}>{review.name}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    {review.avatar && (
+                      <img src={review.avatar} alt={review.name} style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
+                    )}
+                    <span className={styles.authorName}>{review.name}</span>
+                  </div>
                   <span className={styles.authorDate}>{review.date}</span>
                 </div>
               </div>
