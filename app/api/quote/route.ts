@@ -39,8 +39,7 @@ export async function POST(request: Request) {
         
         Vehicle Information:
         --------------------
-        Vehicle: ${vehicleYear} ${vehicleMake} ${vehicleModel}
-        Running Condition: ${running === 'yes' ? 'Runs and Drives' : 'Does Not Run'}
+${vehicles.map((v: any, i: number) => `        ${i + 1}. ${v.year} ${v.make} ${v.model} (Running: ${v.running === 'yes' ? 'Yes' : 'No'})`).join('\n')}
         
         Route & Timing:
         ---------------
@@ -64,8 +63,7 @@ export async function POST(request: Request) {
         
         <h3>Vehicle Information</h3>
         <ul>
-          <li><strong>Vehicle:</strong> ${vehicleYear} ${vehicleMake} ${vehicleModel}</li>
-          <li><strong>Running Condition:</strong> ${running === 'yes' ? 'Runs and Drives' : 'Does Not Run'}</li>
+          ${vehicles.map((v: any) => `<li><strong>${v.year} ${v.make} ${v.model}</strong> (Running: ${v.running === 'yes' ? 'Yes' : 'No'})</li>`).join('')}
         </ul>
         
         <h3>Route & Timing</h3>
