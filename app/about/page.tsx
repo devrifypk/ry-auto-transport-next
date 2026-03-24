@@ -1,73 +1,163 @@
 import Link from 'next/link';
-import { ShieldCheck, Users, Trophy } from 'lucide-react';
+import Image from 'next/image';
+import { ShieldCheck, Crosshair, Handshake, ArrowRight } from 'lucide-react';
 import styles from './page.module.css';
+import { siteConfig } from '../config';
 
-export const metadata = {
-  title: "About Us | R&Y Auto Transport",
-  description: "Learn about R&Y Auto Transport, a reliable auto transport brokerage working with licensed and insured carriers nationwide.",
-};
-
-export default function AboutUs() {
+export default function About() {
   return (
     <>
-      <div className={styles.pageHeader}>
-        <div className="container">
-          <h1 className={styles.title}>About Us</h1>
-          <p className={styles.subtitle}>Your Trusted Partner in Auto Transport</p>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={`container ${styles.heroContent}`}>
+          <div className={styles.heroText}>
+            <span className={styles.heroTag}>Established Precision</span>
+            <h1 className={styles.heroTitle}>
+              Crafting the Art of <span className={styles.heroTitleHighlight}>Auto Motion.</span>
+            </h1>
+            <p className={styles.heroSubtitle}>
+              At {siteConfig.companyName}, we don't just move vehicles; we curate a journey of mechanical excellence through an atelier-inspired logistics framework.
+            </p>
+            <div className={styles.heroActions}>
+              <Link href="/contact" className={styles.btnPrimaryCard}>
+                Our Story
+              </Link>
+            </div>
+          </div>
+          <div className={styles.heroImageWrapper}>
+            <div className={styles.heroImageGlow}></div>
+            <div className={styles.heroImageContainer}>
+              <Image 
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80" 
+                alt="Luxury vehicle" 
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,80,22,0.4), transparent)' }}></div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <section className={styles.aboutSection}>
+      {/* Mission Section */}
+      <section className={styles.missionSection}>
         <div className="container">
-          <div className={styles.aboutGrid}>
-            <div className={styles.textContent}>
-              <h2>Who We Are</h2>
-              <p>
-                R&Y Auto Transport LLC is a premier auto transport brokerage dedicated to providing top-tier vehicle shipping services across the United States. We understand that trusting someone with your vehicle can be stressful, which is why we’ve built our business on a foundation of reliability, transparency, and outstanding customer service.
-              </p>
-              <p>
-                Since our inception, our mission has been simple: to connect our customers with the best, most reliable carriers in the industry, ensuring your vehicle arrives exactly as it left, safely and on time.
-              </p>
-              
-              <h2 className={styles.mt4}>Our Commitment to You</h2>
-              <p>
-                We do the heavy lifting so you don't have to. We thoroughly vet every carrier we work with, verifying their DOT/MC authority, insurance coverage, and safety records. When you ship with R&Y Auto Transport, you are shipping with peace of mind.
+          <div className={styles.missionHeader}>
+            <div className={styles.missionHeaderLeft}>
+              <h2 className={styles.missionTitle}>Our Mission</h2>
+              <p className={styles.missionSubtitle}>
+                To engineer a seamless bridge between origin and destination, transforming the logistics landscape through meticulous precision.
               </p>
             </div>
+            <div className={styles.missionDivider}></div>
+          </div>
 
-            <div className={styles.statsCard}>
-              <div className={styles.statItem}>
-                <div className={styles.statIcon}><ShieldCheck size={32} /></div>
-                <h3>100%</h3>
-                <p>Licensed & Insured Carriers</p>
+          <div className={styles.missionGrid}>
+            <div className={styles.missionCard}>
+              <div className={styles.missionIcon}>
+                <ShieldCheck size={28} />
               </div>
-              <div className={styles.statItem}>
-                <div className={styles.statIcon}><Users size={32} /></div>
-                <h3>Dedicated</h3>
-                <p>Customer Support</p>
+              <h3>Safety First</h3>
+              <p>Our 'Safety First' protocol involves multi-point inspections and climate-controlled environments for every transit.</p>
+            </div>
+            <div className={styles.missionCard}>
+              <div className={styles.missionIcon} style={{ color: '#2b6b39', backgroundColor: 'rgba(43,107,57,0.1)' }}>
+                <Crosshair size={28} />
               </div>
-              <div className={styles.statItem}>
-                <div className={styles.statIcon}><Trophy size={32} /></div>
-                <h3>Nationwide</h3>
-                <p>50-State Coverage</p>
+              <h3>Operational Efficiency</h3>
+              <p>Proprietary routing algorithms ensure minimal downtime and maximum velocity without compromising care.</p>
+            </div>
+            <div className={styles.missionCard}>
+              <div className={styles.missionIcon} style={{ color: '#782844', backgroundColor: 'rgba(120,40,68,0.1)' }}>
+                <Handshake size={28} />
+              </div>
+              <h3>Reliability</h3>
+              <p>A commitment to deadlines that mirrors the precision of the vehicles we are entrusted to move.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className={styles.statsSection}>
+        <div className="container">
+          <div className={styles.statsHeader}>
+            <div className={styles.statsTag}>Performance Metrics</div>
+            <h2 className={styles.statsTitle}>Numbers that speak of our Precision.</h2>
+          </div>
+
+          <div className={styles.statsGrid}>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>12+</span>
+              <span className={styles.statLabel}>Years in Business</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>45k+</span>
+              <span className={styles.statLabel}>Vehicles Moved</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>99.8%</span>
+              <span className={styles.statLabel}>Client Satisfaction</span>
+            </div>
+            <div className={styles.statItem}>
+              <span className={styles.statNumber}>24h</span>
+              <span className={styles.statLabel}>Active Support</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className={styles.teamSection}>
+        <div className="container">
+          <h2 className={styles.teamTitle}>The Minds Behind the Motion</h2>
+          
+          <div className={styles.teamGrid}>
+            <div className={styles.teamCard}>
+              <div className={styles.teamImage}>
+                <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" alt="CEO" fill style={{ objectFit: 'cover' }} />
+              </div>
+              <div className={styles.teamInfo}>
+                <h4>Yakov</h4>
+                <p className={styles.teamRole}>CEO & Founder</p>
+                <p className={styles.teamDesc}>Visionary leader with immense experience in global logistics architecture and relationship building.</p>
+              </div>
+            </div>
+            <div className={styles.teamCard}>
+              <div className={styles.teamImage}>
+                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" alt="Ops Director" fill style={{ objectFit: 'cover' }} />
+              </div>
+              <div className={styles.teamInfo}>
+                <h4>Management Team</h4>
+                <p className={styles.teamRole}>Operations</p>
+                <p className={styles.teamDesc}>Orchestrating complex transit patterns with mathematical precision and unwavering dedication.</p>
+              </div>
+            </div>
+            <div className={styles.teamCard}>
+              <div className={styles.teamImage}>
+                <Image src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80" alt="Support" fill style={{ objectFit: 'cover' }} />
+              </div>
+              <div className={styles.teamInfo}>
+                <h4>Dedicated Agents</h4>
+                <p className={styles.teamRole}>Client Concierge</p>
+                <p className={styles.teamDesc}>Ensuring that you are informed from origin to destination via real-time bespoke tracking.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.teamSection}>
-        <div className="container text-center">
-          <h2>Ready to Transport Your Vehicle?</h2>
-          <p className={styles.teamText}>
-            Join thousands of satisfied customers who have trusted R&Y Auto Transport for their shipping needs.
-          </p>
-          <div className={styles.btnGroup}>
-            <Link href="/quote" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '0.8rem 2rem' }}>
-              Request a Free Quote
+      {/* CTA Footer Section */}
+      <section className={styles.ctaFooter}>
+        <div className={styles.ctaFooterBg}></div>
+        <div className={`container ${styles.ctaFooterContent}`}>
+          <h2 className={styles.ctaFooterTitle}>Ready to experience kinetic excellence?</h2>
+          <div className={styles.ctaFooterActions}>
+            <Link href="/quote" className={styles.btnPrimarySolid}>
+              Request Your Personal Quote
             </Link>
-            <Link href="/contact" className="btn" style={{ fontSize: '1.1rem', padding: '0.8rem 2rem', border: '1px solid var(--brand-green-300)', color: 'var(--brand-green-500)' }}>
-              Contact Us
+            <Link href="/contact" className={styles.btnLink}>
+              Speak with an Expert <ArrowRight size={20} />
             </Link>
           </div>
         </div>
