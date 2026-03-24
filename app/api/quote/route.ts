@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { siteConfig } from '../../config';
 
 export async function POST(request: Request) {
   try {
@@ -24,8 +25,8 @@ export async function POST(request: Request) {
 
     // Email to the business owner
     const mailOptions = {
-      from: process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@ryautotransport.com',
-      to: process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER || 'yakov@ryautotransport.com',
+      from: process.env.SMTP_FROM || process.env.SMTP_USER || siteConfig.fromEmail,
+      to: process.env.NOTIFICATION_EMAIL || siteConfig.notificationEmail,
       subject: `New Quote Request: ${pickup} to ${delivery}`,
       text: `
         New Quote Request from Website:
