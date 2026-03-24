@@ -1,0 +1,152 @@
+.pageHeader {
+  background-color: var(--brand-green-500);
+  background-image: linear-gradient(135deg, var(--brand-green-500) 0%, var(--brand-green-400) 100%);
+  color: white;
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #d1ead5;
+}
+
+.quoteSection {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-color);
+}
+
+.quoteContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.formCard {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-top: 5px solid var(--brand-green-300);
+}
+
+@media (max-width: 767px) {
+  .formCard {
+    padding: 1.5rem;
+  }
+}
+
+.formSection {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.formSection.noBorder {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.formSection h3 {
+  font-size: 1.4rem;
+  color: var(--brand-green-400);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .grid2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.input, .select, .textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background-color: var(--bg-color);
+  width: 100%;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--brand-green-300);
+  box-shadow: 0 0 0 3px rgba(37, 105, 44, 0.1);
+  background-color: var(--surface-color);
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231a1a1a%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.successContainer {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.successIcon {
+  color: var(--brand-green-200);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.successContainer h2 {
+  font-size: 2rem;
+  color: var(--brand-green-400);
+  margin-bottom: 1rem;
+}
+
+.successContainer p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.errorMessage {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border: 1px solid #fca5a5;
+}

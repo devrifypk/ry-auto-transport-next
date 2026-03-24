@@ -1,0 +1,178 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--brand-green-500);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--brand-green-400);
+  color: white;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.logoIcon {
+  color: #aed5b5;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.brandSub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: white;
+}
+
+.navLink.active {
+  color: white;
+  font-weight: 600;
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #aed5b5;
+  border-radius: 2px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phoneLink {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .phoneLink {
+    display: flex;
+  }
+}
+
+.phoneLink:hover {
+  color: #aed5b5;
+}
+
+.quoteBtn {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .quoteBtn {
+    display: inline-flex;
+  }
+}
+
+.mobileMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .mobileMenuBtn {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-md);
+  border-top: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-color);
+}
+
+.mobileNavLink.activeMobile {
+  background-color: #eef5ef;
+  color: var(--brand-green-400);
+  font-weight: 600;
+  border-left: 4px solid var(--brand-green-300);
+}
+
+.mobileQuoteBtn {
+  margin-top: 0.5rem;
+  width: 100%;
+}

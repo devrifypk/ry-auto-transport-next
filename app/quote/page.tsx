@@ -1,0 +1,174 @@
+'use client';
+
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { CheckCircle2 } from 'lucide-react';
+import styles from './page.module.css';
+
+function QuoteFormInner() {
+  const searchParams = useSearchParams();
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    vehicleYear: '',
+    vehicleMake: '',
+    vehicleModel: '',
+    pickup: searchParams.get('pickup') || '',
+    delivery: searchParams.get('delivery') || '',
+    date: searchParams.get('date') || '',
+    running: 'yes',
+    notes: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    try {
+      const res = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className={styles.successContainer}>
+        <CheckCircle2 size={64} className={styles.successIcon} />
+        <h2>Thank you! We received your request.</h2>
+        <p>A representative from R&Y Auto Transport will contact you shortly with a personalized quote for your route.</p>
+        <button className="btn btn-primary" onClick={() => setStatus('idle')} style={{ marginTop: '2rem' }}>
+          Request Another Quote
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className={styles.quoteForm}>
+      <div className={styles.formSection}>
+        <h3>1. Vehicle Information</h3>
+        <div className={styles.grid2}>
+          <div className={styles.formGroup}>
+            <label htmlFor="vehicleYear">Vehicle Year</label>
+            <input type="text" id="vehicleYear" name="vehicleYear" value={formData.vehicleYear} onChange={handleChange} required className={styles.input} placeholder="e.g. 2021" />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="vehicleMake">Make</label>
+            <input type="text" id="vehicleMake" name="vehicleMake" value={formData.vehicleMake} onChange={handleChange} required className={styles.input} placeholder="e.g. Honda" />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="vehicleModel">Model</label>
+            <input type="text" id="vehicleModel" name="vehicleModel" value={formData.vehicleModel} onChange={handleChange} required className={styles.input} placeholder="e.g. Civic" />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="running">Is the vehicle running?</label>
+            <select id="running" name="running" value={formData.running} onChange={handleChange} className={styles.select}>
+              <option value="yes">Yes, it runs and drives</option>
+              <option value="no">No, it does not run</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.formSection}>
+        <h3>2. Route & Timing</h3>
+        <div className={styles.grid2}>
+          <div className={styles.formGroup}>
+            <label htmlFor="pickup">Pickup City & State</label>
+            <input type="text" id="pickup" name="pickup" value={formData.pickup} onChange={handleChange} required className={styles.input} placeholder="e.g. Miami, FL" />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="delivery">Delivery City & State</label>
+            <input type="text" id="delivery" name="delivery" value={formData.delivery} onChange={handleChange} required className={styles.input} placeholder="e.g. Los Angeles, CA" />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="date">First Available Pickup Date</label>
+            <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required className={styles.input} />
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.formSection}>
+        <h3>3. Contact Information</h3>
+        <div className={styles.grid2}>
+          <div className={styles.formGroup}>
+            <label htmlFor="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className={styles.input} />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className={styles.input} />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required className={styles.input} />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="email">Email Address</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className={styles.input} />
+          </div>
+        </div>
+      </div>
+
+      <div className={`${styles.formSection} ${styles.noBorder}`}>
+        <h3>4. Additional Notes</h3>
+        <div className={styles.formGroup}>
+          <label htmlFor="notes">Any special instructions or details about the vehicle?</label>
+          <textarea id="notes" name="notes" value={formData.notes} onChange={handleChange} rows={4} className={styles.textarea} placeholder="e.g. Needs enclosed transport, modified suspension, etc."></textarea>
+        </div>
+      </div>
+
+      {status === 'error' && (
+        <div className={styles.errorMessage}>
+          An error occurred while submitting your request. Please try again or call us directly.
+        </div>
+      )}
+
+      <button type="submit" className={`btn btn-primary ${styles.submitBtn}`} disabled={status === 'submitting'}>
+        {status === 'submitting' ? 'Submitting Request...' : 'Get My Free Quote'}
+      </button>
+    </form>
+  );
+}
+
+export default function QuotePage() {
+  return (
+    <>
+      <div className={styles.pageHeader}>
+        <div className="container">
+          <h1 className={styles.title}>Get a Custom Quote</h1>
+          <p className={styles.subtitle}>Provide your details below to receive a fast, accurate estimate.</p>
+        </div>
+      </div>
+
+      <section className={styles.quoteSection}>
+        <div className={`container ${styles.quoteContainer}`}>
+          <div className={styles.formCard}>
+            <Suspense fallback={<div style={{textAlign: 'center', padding: '3rem'}}>Loading form...</div>}>
+              <QuoteFormInner />
+            </Suspense>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

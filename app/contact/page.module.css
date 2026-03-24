@@ -1,0 +1,163 @@
+.pageHeader {
+  background-color: var(--brand-green-500);
+  background-image: linear-gradient(135deg, var(--brand-green-500) 0%, var(--brand-green-400) 100%);
+  color: white;
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #d1ead5;
+}
+
+.contactSection {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-color);
+}
+
+.contactContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 992px) {
+  .contactContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contactInfo h2, .contactFormWrapper h2 {
+  font-size: 2rem;
+  color: var(--brand-green-500);
+  margin-bottom: 1rem;
+}
+
+.contactDesc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.iconWrapper {
+  color: var(--brand-green-300);
+  background-color: #eef5ef;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.infoCard h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.infoCard a, .infoCard span {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.infoCard a:hover {
+  color: var(--brand-green-300);
+  text-decoration: underline;
+}
+
+.contactFormWrapper {
+  background-color: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.input, .textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background-color: var(--bg-color);
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--brand-green-300);
+  box-shadow: 0 0 0 3px rgba(37, 105, 44, 0.1);
+  background-color: var(--surface-color);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.successMessage {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #eef5ef;
+  border-radius: var(--radius-md);
+  margin-top: 1.5rem;
+  border: 1px solid var(--brand-green-200);
+}
+
+.successMessage h3 {
+  color: var(--brand-green-400);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.successMessage p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}

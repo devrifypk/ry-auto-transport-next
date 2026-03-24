@@ -1,0 +1,135 @@
+.footer {
+  background-color: var(--brand-green-500);
+  color: #fff;
+  padding-top: var(--spacing-lg);
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logoIcon {
+  color: var(--brand-green-200);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.brandSub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #aed5b5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.brandDesc {
+  color: #d1ead5;
+  line-height: 1.6;
+  max-width: 400px;
+  font-size: 0.95rem;
+}
+
+.footerHeading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--brand-green-200);
+}
+
+.linkList, .contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkList a {
+  color: #d1ead5;
+  transition: color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.linkList a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: #d1ead5;
+  font-size: 0.95rem;
+}
+
+.contactList a {
+  color: #d1ead5;
+  transition: color 0.2s ease;
+}
+
+.contactList a:hover {
+  color: #fff;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  color: var(--brand-green-200);
+  margin-top: 0.1rem;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-sm) 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aed5b5;
+}
+
+@media (min-width: 768px) {
+  .bottomContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
