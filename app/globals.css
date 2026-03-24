@@ -1,19 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Core brand colors (from image) */
-  --brand-green-100: #468651;
-  --brand-green-200: #25692c;
-  --brand-green-300: #1f5625;
-  --brand-green-400: #09430e;
-  --brand-green-500: #023002;
+  /* Stitch Kinetic Atelier Theme Tokens */
+  --primary: #045016;
+  --primary-container: #25692c;
+  --primary-fixed: #abf4a7;
+  --surface: #ecffe2;
+  --surface-container-low: #d6ffc7;
+  --surface-container-lowest: #ffffff;
+  --on-surface: #002200;
+  --on-surface-variant: #40493e;
+
+  /* Mappings for backwards compatibility */
+  --brand-green-100: var(--primary-fixed);
+  --brand-green-200: var(--primary-container);
+  --brand-green-300: var(--primary);
+  --brand-green-400: var(--primary);
+  --brand-green-500: var(--primary);
 
   /* Neutral colors */
-  --bg-color: #f8f9fa;
-  --surface-color: #ffffff;
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a5568;
-  --border-color: #e2e8f0;
+  --bg-color: var(--surface);
+  --surface-color: var(--surface-container-lowest);
+  --text-primary: var(--on-surface);
+  --text-secondary: var(--on-surface-variant);
+  --border-color: rgba(192, 201, 187, 0.15);
 
   /* Fonts */
   --font-primary: 'Inter', sans-serif;

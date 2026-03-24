@@ -7,8 +7,8 @@ export async function POST(request: Request) {
     const data = await request.json();
     const { 
       firstName, lastName, phone, email, 
-      vehicleYear, vehicleMake, vehicleModel, 
-      pickup, delivery, date, running, notes 
+      vehicles, 
+      pickup, delivery, date, notes 
     } = data;
 
     // Build the transporter

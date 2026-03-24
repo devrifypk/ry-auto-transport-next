@@ -14,15 +14,32 @@ function QuoteFormInner() {
     lastName: '',
     phone: '',
     email: '',
-    vehicleYear: '',
-    vehicleMake: '',
-    vehicleModel: '',
+    vehicles: [{ year: '', make: '', model: '', running: 'yes' }],
     pickup: searchParams.get('pickup') || '',
     delivery: searchParams.get('delivery') || '',
     date: searchParams.get('date') || '',
-    running: 'yes',
     notes: ''
   });
+
+  const handleVehicleChange = (index: number, field: string, value: string) => {
+    const newVehicles = [...formData.vehicles];
+    newVehicles[index] = { ...newVehicles[index], [field]: value };
+    setFormData({ ...formData, vehicles: newVehicles });
+  };
+
+  const addVehicle = () => {
+    setFormData({ 
+      ...formData, 
+      vehicles: [...formData.vehicles, { year: '', make: '', model: '', running: 'yes' }] 
+    });
+  };
+
+  const removeVehicle = (index: number) => {
+    if (formData.vehicles.length > 1) {
+      const newVehicles = formData.vehicles.filter((_, i) => i !== index);
+      setFormData({ ...formData, vehicles: newVehicles });
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -65,28 +82,44 @@ function QuoteFormInner() {
   return (
     <form onSubmit={handleSubmit} className={styles.quoteForm}>
       <div className={styles.formSection}>
-        <h3>1. Vehicle Information</h3>
-        <div className={styles.grid2}>
-          <div className={styles.formGroup}>
-            <label htmlFor="vehicleYear">Vehicle Year</label>
-            <input type="text" id="vehicleYear" name="vehicleYear" value={formData.vehicleYear} onChange={handleChange} required className={styles.input} placeholder="e.g. 2021" />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="vehicleMake">Make</label>
-            <input type="text" id="vehicleMake" name="vehicleMake" value={formData.vehicleMake} onChange={handleChange} required className={styles.input} placeholder="e.g. Honda" />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="vehicleModel">Model</label>
-            <input type="text" id="vehicleModel" name="vehicleModel" value={formData.vehicleModel} onChange={handleChange} required className={styles.input} placeholder="e.g. Civic" />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="running">Is the vehicle running?</label>
-            <select id="running" name="running" value={formData.running} onChange={handleChange} className={styles.select}>
-              <option value="yes">Yes, it runs and drives</option>
-              <option value="no">No, it does not run</option>
-            </select>
-          </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <h3>1. Vehicle Information</h3>
         </div>
+        
+        {formData.vehicles.map((vehicle, index) => (
+          <div key={index} style={{ marginBottom: '2rem', padding: '1.5rem', background: 'var(--surface-container-low)', borderRadius: 'var(--radius-md)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+              <h4 style={{ margin: 0, color: 'var(--primary)' }}>Vehicle {index + 1}</h4>
+              {formData.vehicles.length > 1 && (
+                <button type="button" onClick={() => removeVehicle(index)} style={{ color: '#ba1a1a', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 600 }}>Remove</button>
+              )}
+            </div>
+            <div className={styles.grid2}>
+              <div className={styles.formGroup}>
+                <label>Vehicle Year</label>
+                <input type="text" value={vehicle.year} onChange={(e) => handleVehicleChange(index, 'year', e.target.value)} required className={styles.input} placeholder="e.g. 2021" />
+              </div>
+              <div className={styles.formGroup}>
+                <label>Make</label>
+                <input type="text" value={vehicle.make} onChange={(e) => handleVehicleChange(index, 'make', e.target.value)} required className={styles.input} placeholder="e.g. Honda" />
+              </div>
+              <div className={styles.formGroup}>
+                <label>Model</label>
+                <input type="text" value={vehicle.model} onChange={(e) => handleVehicleChange(index, 'model', e.target.value)} required className={styles.input} placeholder="e.g. Civic" />
+              </div>
+              <div className={styles.formGroup}>
+                <label>Is the vehicle running?</label>
+                <select value={vehicle.running} onChange={(e) => handleVehicleChange(index, 'running', e.target.value)} className={styles.select}>
+                  <option value="yes">Yes, it runs and drives</option>
+                  <option value="no">No, it does not run</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        ))}
+        <button type="button" onClick={addVehicle} className="btn" style={{ background: 'var(--surface-color)', color: 'var(--primary)', border: '1px solid var(--primary)', width: '100%' }}>
+          + Add Another Vehicle
+        </button>
       </div>
 
       <div className={styles.formSection}>

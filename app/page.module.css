@@ -101,7 +101,7 @@
 /* Introduction Section */
 .introSection {
   padding: var(--spacing-xl) 0;
-  background-color: var(--surface-color);
+  background-color: var(--surface);
 }
 
 .introContent {
@@ -137,7 +137,7 @@
 }
 
 .featureCard {
-  background: var(--surface-color);
+  background: var(--surface-container-lowest);
   padding: var(--spacing-lg);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(0, 0, 0, 0.03);
@@ -154,8 +154,8 @@
 .featureIconWrapper {
   display: inline-flex;
   padding: 1rem;
-  background-color: #eef5ef;
-  color: var(--brand-green-300);
+  background-color: var(--surface-container-low);
+  color: var(--primary);
   border-radius: var(--radius-md);
   margin-bottom: 1rem;
 }
@@ -174,7 +174,7 @@
 /* Reviews Section */
 .reviewsSection {
   padding: var(--spacing-xl) 0;
-  background-color: #eef5ef;
+  background-color: var(--surface-container-low);
 }
 
 .reviewsHeader {
@@ -274,7 +274,7 @@
 /* CTA Section */
 .ctaSection {
   padding: var(--spacing-xl) 0;
-  background: linear-gradient(135deg, var(--brand-green-500), var(--brand-green-300));
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
   color: white;
   text-align: center;
 }
