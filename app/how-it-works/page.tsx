@@ -25,7 +25,7 @@ export default function HowItWorks() {
           <div className={styles.heroImageWrapper}>
             <div className={styles.heroImageContainer}>
               <Image 
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80" 
+                src="/images/how-hero.jpg" 
                 alt="Luxury car transporter" 
                 fill
                 style={{ objectFit: 'cover' }}
@@ -51,7 +51,7 @@ export default function HowItWorks() {
                 <p>Input your details and receive a transparent, no-obligation quote in seconds. No hidden fees, just honest pricing.</p>
               </div>
               <div className={styles.bentoImageSquare}>
-                <Image src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80" alt="Get Quote" fill style={{ objectFit: 'cover' }} />
+                <Image src="/images/how-step1.jpg" alt="Get Quote" fill style={{ objectFit: 'cover' }} />
               </div>
             </div>
 
@@ -63,7 +63,7 @@ export default function HowItWorks() {
                   <p>Secure your slot with our top-rated carriers. We match you with the best driver based on your specific route and vehicle needs.</p>
                 </div>
                 <div className={styles.bentoWideImage}>
-                  <Image src="https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&q=80" alt="Book Order" fill style={{ objectFit: 'cover' }} />
+                  <Image src="/images/how-step2.jpg" alt="Book Order" fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
 
@@ -74,7 +74,7 @@ export default function HowItWorks() {
                   <p>Our driver arrives for a thorough inspection and careful loading. You receive a detailed condition report instantly.</p>
                 </div>
                 <div className={styles.bentoSmallImage}>
-                  <Image src="https://images.unsplash.com/photo-1626294508493-e4c172d7332c?auto=format&fit=crop&q=80" alt="Vehicle Pickup" fill style={{ objectFit: 'cover' }} />
+                  <Image src="/images/how-step3.jpg" alt="Vehicle Pickup" fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ export default function HowItWorks() {
                   <p>Your vehicle is delivered safely to your door. Inspect, sign, and celebrate—your transit is complete.</p>
                 </div>
                 <div className={styles.bentoSmallImage}>
-                  <Image src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?auto=format&fit=crop&q=80" alt="Secure Delivery" fill style={{ objectFit: 'cover' }} />
+                  <Image src="/images/how-step4.jpg" alt="Secure Delivery" fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
             </div>

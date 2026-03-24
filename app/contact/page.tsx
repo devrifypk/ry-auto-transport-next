@@ -117,19 +117,15 @@ export default function Contact() {
           </div>
 
           <div className={styles.mapContainer}>
-            <Image 
-              src="https://images.unsplash.com/photo-1590059595567-0c3eb1a47385?auto=format&fit=crop&q=80" 
-              alt="Map"
-              fill
-              className={styles.mapImage}
-            />
-            <div className={styles.mapPin}>
-              <div className={styles.pinIcon}>
-                <div className={styles.pinTriangle}></div>
-                <Image src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=48&q=80" alt="Pin" width={48} height={48} style={{ borderRadius: '8px' }} />
-              </div>
-              <div className={styles.pinLabel}>The Atelier</div>
-            </div>
+            <iframe 
+              src="https://maps.google.com/maps?q=1400%20Village%20Sq%20Blvd%20%233,%20Tallahassee,%20FL%2032312&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, filter: 'grayscale(1) contrast(1.2)' }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>

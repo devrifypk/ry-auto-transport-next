@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Star, ShieldCheck, Map, MapPin, Clock, Truck, Play, Award, CheckCircle } from 'lucide-react';
-import HeroQuoteForm from './components/HeroQuoteForm';
+import HeroQuoteForm from '@/app/components/HeroQuoteForm';
 import { siteConfig } from './config';
 import styles from './page.module.css';
 

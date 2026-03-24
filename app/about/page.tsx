@@ -28,7 +28,7 @@ export default function About() {
             <div className={styles.heroImageGlow}></div>
             <div className={styles.heroImageContainer}>
               <Image 
-                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80" 
+                src="/images/about-hero.jpg" 
                 alt="Luxury vehicle" 
                 fill
                 style={{ objectFit: 'cover' }}
@@ -115,7 +115,7 @@ export default function About() {
           <div className={styles.teamGrid}>
             <div className={styles.teamCard}>
               <div className={styles.teamImage}>
-                <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" alt="CEO" fill style={{ objectFit: 'cover' }} />
+                <Image src="/images/team-1.jpg" alt="CEO" fill style={{ objectFit: 'cover' }} />
               </div>
               <div className={styles.teamInfo}>
                 <h4>Yakov</h4>
@@ -125,7 +125,7 @@ export default function About() {
             </div>
             <div className={styles.teamCard}>
               <div className={styles.teamImage}>
-                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" alt="Ops Director" fill style={{ objectFit: 'cover' }} />
+                <Image src="/images/team-2.jpg" alt="Ops Director" fill style={{ objectFit: 'cover' }} />
               </div>
               <div className={styles.teamInfo}>
                 <h4>Management Team</h4>
@@ -135,7 +135,7 @@ export default function About() {
             </div>
             <div className={styles.teamCard}>
               <div className={styles.teamImage}>
-                <Image src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80" alt="Support" fill style={{ objectFit: 'cover' }} />
+                <Image src="/images/team-3.jpg" alt="Support" fill style={{ objectFit: 'cover' }} />
               </div>
               <div className={styles.teamInfo}>
                 <h4>Dedicated Agents</h4>
