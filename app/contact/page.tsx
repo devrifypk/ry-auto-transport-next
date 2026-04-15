@@ -1,8 +1,40 @@
-import { Mail, Headset, Phone, Clock, CalendarDays, MapPin, Send } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { Mail, Headset, Phone, Clock, CalendarDays, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -28,29 +60,49 @@ export default function Contact() {
               <Mail className={styles.formIcon} size={32} />
               Send a Message
             </h2>
-            <form className={styles.formGrid}>
-              <div className={styles.formRow}>
-                <div className={styles.fieldGroup}>
-                  <label>Full Name</label>
-                  <input type="text" className={styles.inputField} placeholder="John Doe" />
+            
+            {status === 'success' ? (
+              <div style={{ padding: '2rem', textAlign: 'center', background: '#ecffe2', borderRadius: '12px', color: '#045016' }}>
+                <CheckCircle2 size={48} style={{ margin: '0 auto 1rem auto' }} />
+                <h3>Message Sent Successfully</h3>
+                <p>Thank you for reaching out. A specialist will get back to you shortly.</p>
+                <button 
+                  type="button" 
+                  onClick={() => setStatus('idle')}
+                  className={styles.submitBtn}
+                  style={{ marginTop: '1.5rem' }}
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form className={styles.formGrid} onSubmit={handleSubmit}>
+                <div className={styles.formRow}>
+                  <div className={styles.fieldGroup}>
+                    <label>Full Name</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required className={styles.inputField} placeholder="John Doe" />
+                  </div>
+                  <div className={styles.fieldGroup}>
+                    <label>Email Address</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required className={styles.inputField} placeholder="john@example.com" />
+                  </div>
                 </div>
                 <div className={styles.fieldGroup}>
-                  <label>Email Address</label>
-                  <input type="email" className={styles.inputField} placeholder="john@example.com" />
+                  <label>Phone Number</label>
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className={styles.inputField} placeholder="(555) 000-0000" />
                 </div>
-              </div>
-              <div className={styles.fieldGroup}>
-                <label>Phone Number</label>
-                <input type="tel" className={styles.inputField} placeholder="+1 (555) 000-0000" />
-              </div>
-              <div className={styles.fieldGroup}>
-                <label>Message</label>
-                <textarea className={`${styles.inputField} ${styles.textareaField}`} placeholder="Tell us about your transport needs..." rows={5}></textarea>
-              </div>
-              <button type="button" className={styles.submitBtn}>
-                Send Inquiry <Send size={20} />
-              </button>
-            </form>
+                <div className={styles.fieldGroup}>
+                  <label>Message</label>
+                  <textarea name="message" value={formData.message} onChange={handleChange} required className={`${styles.inputField} ${styles.textareaField}`} placeholder="Tell us about your transport needs..." rows={5}></textarea>
+                </div>
+                
+                {status === 'error' && <p style={{ color: '#ba1a1a', fontSize: '0.9rem', marginBottom: '1rem' }}>Failed to send message. Please try again or call us directly.</p>}
+                
+                <button type="submit" disabled={status === 'submitting'} className={styles.submitBtn}>
+                  {status === 'submitting' ? 'Sending...' : 'Send Inquiry'} <Send size={20} />
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Right: Info Cards */}
