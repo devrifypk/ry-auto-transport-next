@@ -10,7 +10,6 @@ export default function Footer() {
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.footerBrand}>
           <Link href="/" className={styles.logo}>
-            <Truck className={styles.logoIcon} size={32} />
             <div className={styles.logoText}>
               <span className={styles.brandName}>R&Y</span>
               <span className={styles.brandSub}>Auto Transport</span>
@@ -37,15 +36,15 @@ export default function Footer() {
           <ul className={styles.contactList}>
             <li>
               <Phone size={18} className={styles.contactIcon} />
-              <a href="tel:+18005550199">(800) 555-0199</a>
+              <a href="tel:+19546438989">(954) 643-8989</a>
             </li>
             <li>
               <Mail size={18} className={styles.contactIcon} />
-              <a href="mailto:quotes@ryautotransport.com">quotes@ryautotransport.com</a>
+              <a href="mailto:Jacob@ryautotransport.com">Jacob@ryautotransport.com</a>
             </li>
             <li>
               <MapPin size={18} className={styles.contactIcon} />
-              <span>Available Nationwide, USA</span>
+              <span>FAR ROCKAWAY, NY, 11691</span>
             </li>
           </ul>
         </div>

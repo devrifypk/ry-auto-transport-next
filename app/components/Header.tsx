@@ -22,7 +22,6 @@ export default function Header() {
       <div className={`container ${styles.headerContainer}`}>
         {/* Logo Section */}
         <Link href="/" className={styles.logo}>
-          <Truck className={styles.logoIcon} size={32} />
           <div className={styles.logoText}>
             <span className={styles.brandName}>R&Y</span>
             <span className={styles.brandSub}>Auto Transport</span>
@@ -44,9 +43,9 @@ export default function Header() {
 
         {/* Action Buttons */}
         <div className={styles.headerActions}>
-          <a href="tel:+18005550199" className={styles.phoneLink}>
+          <a href="tel:+19546438989" className={styles.phoneLink}>
             <Phone size={18} />
-            <span>(800) 555-0199</span>
+            <span>(954) 643-8989</span>
           </a>
           <Link href="/quote" className={`btn btn-primary ${styles.quoteBtn}`}>
             Get a Quote

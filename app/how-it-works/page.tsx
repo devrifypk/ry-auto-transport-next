@@ -149,7 +149,7 @@ export default function HowItWorks() {
             <div className={styles.ctaDecoration1}></div>
             <div className={styles.ctaDecoration2}></div>
             
-            <h2 className={styles.ctaTitleFinal}>Ready for a smoother ride?</h2>
+            <h2 className={styles.ctaTitleFinal} style={{ color: '#ffffff' }}>Ready for a smoother ride?</h2>
             <p className={styles.ctaSubtitleFinal}>
               Join thousands of satisfied owners who trust our logistics for their most valuable assets. Get your tailored quote today.
             </p>

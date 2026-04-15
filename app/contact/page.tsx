@@ -69,7 +69,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className={styles.supportLabel}>Direct Line</p>
-                      <p className={styles.supportValueHuge}>(800) 555-RYAT</p>
+                      <p className={styles.supportValueHuge}>(954) 643-8989</p>
                     </div>
                   </div>
                   <div className={styles.supportItem}>
@@ -98,34 +98,6 @@ export default function Contact() {
                 Book Now <CalendarDays size={20} />
               </button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className={styles.mapSection}>
-        <div className="container">
-          <div className={styles.mapHeader}>
-            <div>
-              <h2 className={styles.mapTitle}>Our Atelier Headquarters</h2>
-              <p className={styles.mapSubtitle}>Located in the heart of the historic automotive district, our facility serves as the nerve center for North American operations.</p>
-            </div>
-            <div className={styles.mapAddress}>
-              <MapPin size={24} />
-              <span>1200 Avenue of the Arts, Detroit, MI 48226</span>
-            </div>
-          </div>
-
-          <div className={styles.mapContainer}>
-            <iframe 
-              src="https://maps.google.com/maps?q=1400%20Village%20Sq%20Blvd%20%233,%20Tallahassee,%20FL%2032312&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, filter: 'grayscale(1) contrast(1.2)' }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
           </div>
         </div>
       </section>

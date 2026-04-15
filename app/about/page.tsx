@@ -107,45 +107,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className={styles.teamSection}>
-        <div className="container">
-          <h2 className={styles.teamTitle}>The Minds Behind the Motion</h2>
-          
-          <div className={styles.teamGrid}>
-            <div className={styles.teamCard}>
-              <div className={styles.teamImage}>
-                <Image src="/images/team-1.jpg" alt="CEO" fill style={{ objectFit: 'cover' }} />
-              </div>
-              <div className={styles.teamInfo}>
-                <h4>Yakov</h4>
-                <p className={styles.teamRole}>CEO & Founder</p>
-                <p className={styles.teamDesc}>Visionary leader with immense experience in global logistics architecture and relationship building.</p>
-              </div>
-            </div>
-            <div className={styles.teamCard}>
-              <div className={styles.teamImage}>
-                <Image src="/images/team-2.jpg" alt="Ops Director" fill style={{ objectFit: 'cover' }} />
-              </div>
-              <div className={styles.teamInfo}>
-                <h4>Management Team</h4>
-                <p className={styles.teamRole}>Operations</p>
-                <p className={styles.teamDesc}>Orchestrating complex transit patterns with mathematical precision and unwavering dedication.</p>
-              </div>
-            </div>
-            <div className={styles.teamCard}>
-              <div className={styles.teamImage}>
-                <Image src="/images/team-3.jpg" alt="Support" fill style={{ objectFit: 'cover' }} />
-              </div>
-              <div className={styles.teamInfo}>
-                <h4>Dedicated Agents</h4>
-                <p className={styles.teamRole}>Client Concierge</p>
-                <p className={styles.teamDesc}>Ensuring that you are informed from origin to destination via real-time bespoke tracking.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Footer Section */}
       <section className={styles.ctaFooter}>

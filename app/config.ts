@@ -8,6 +8,6 @@ export const siteConfig = {
 
   // Company Info
   companyName: 'R&Y Auto Transport LLC',
-  phone: '(800) 555-0199',
-  contactEmail: 'quotes@ryautotransport.com',
+  phone: '(954) 643-8989',
+  contactEmail: 'Jacob@ryautotransport.com',
 };

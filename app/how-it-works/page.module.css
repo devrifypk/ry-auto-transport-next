@@ -87,6 +87,7 @@
   transition: all 0.2s ease;
   border: none;
 }
+
 .btnPrimary:hover {
   transform: scale(0.98);
   opacity: 0.9;
@@ -326,6 +327,7 @@
   font-size: 1.125rem;
   list-style: none;
 }
+
 .faqSummary::-webkit-details-marker {
   display: none;
 }
@@ -426,7 +428,8 @@
 }
 
 .btnSolidWhite {
-  background-color: var(--primary-fixed); /* Light green button */
+  background-color: var(--primary-fixed);
+  /* Light green button */
   color: #002105;
   padding: 1rem 2.5rem;
   border-radius: 1rem;
@@ -435,6 +438,7 @@
   border: none;
   transition: all 0.2s ease;
 }
+
 .btnSolidWhite:hover {
   background-color: white;
   transform: scale(0.98);
@@ -451,6 +455,7 @@
   font-size: 1.125rem;
   transition: all 0.2s ease;
 }
+
 .btnOutlineWhite:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: scale(0.98);
