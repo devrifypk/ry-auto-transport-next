@@ -78,8 +78,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className={styles.supportLabel}>Operating Hours</p>
-                      <p className={styles.supportValueText}>Monday — Friday: 8AM - 8PM EST</p>
-                      <p className={styles.supportValueText}>Saturday: 10AM - 4PM EST</p>
+                      <p className={styles.supportValueText}>Mon - Thu: 9 AM - 7 PM</p>
+                      <p className={styles.supportValueText}>Friday: 9 AM - 12 PM</p>
+                      <p className={styles.supportValueText}>Saturday: Closed</p>
+                      <p className={styles.supportValueText}>Sunday: 9 AM - 2 PM</p>
                     </div>
                   </div>
                 </div>
