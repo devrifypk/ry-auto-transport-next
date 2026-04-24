@@ -50,18 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof Logo Carousel */}
-      <section className={styles.socialProof}>
-        <div className="container">
-          <p className={styles.socialProofText}>Trusted by Discerning Clients Nationwide</p>
-          <div className={styles.logos}>
-            <span className={styles.logo}>PORSCHE CLUB</span>
-            <span className={styles.logo}>AUTO AUCTIONS</span>
-            <span className={styles.logo}>CLASSIC EXOTICS</span>
-            <span className={styles.logo}>ELITE MOTORS</span>
-          </div>
-        </div>
-      </section>
+
 
       {/* Key Value Propositions */}
       <section className={styles.valueSection}>
@@ -74,16 +63,6 @@ export default function Home() {
               <p className={styles.valueSubtitle}>
                 We don't just move cars; we manage your peace of mind with a tech-forward approach to elite transportation.
               </p>
-            </div>
-            
-            <div className={styles.insuredBadge}>
-              <div className={styles.insuredIcon}>
-                <ShieldCheck size={28} />
-              </div>
-              <div className={styles.insuredText}>
-                <strong>Fully Insured</strong>
-                <span>Up to $5M coverage</span>
-              </div>
             </div>
           </div>
 
