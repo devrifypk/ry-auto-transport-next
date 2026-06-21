@@ -123,21 +123,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* Developer Credit - SEO Friendly Backlink */}
-      <section style={{ padding: '1.5rem 0', textAlign: 'center', fontSize: '0.875rem', color: '#6b7280' }}>
-        <div className="container">
-          Digital Platform Engineered by{' '}
-          <a 
-            href="https://codeworm.dev/solutions/brokerage" 
-            target="_blank" 
-            rel="noopener" 
-            style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '2px' }}
-          >
-            Codeworm
-          </a>
-        </div>
-      </section>
     </>
   );
 }
