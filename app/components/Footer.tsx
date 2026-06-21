@@ -51,8 +51,22 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <div className={`container ${styles.bottomContainer}`}>
+        {/* Updated container to space out copyright and developer credit naturally */}
+        <div className={`container ${styles.bottomContainer}`} style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
           <p>&copy; {currentYear} R&Y Auto Transport LLC. All rights reserved.</p>
+          
+          {/* SEO Friendly Backlink */}
+          <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+            Platform Engineered by{' '}
+            <a 
+              href="https://codeworm.dev/solutions/brokerage" 
+              target="_blank" 
+              rel="noopener" 
+              style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '2px' }}
+            >
+              Codeworm
+            </a>
+          </p>
         </div>
       </div>
     </footer>
